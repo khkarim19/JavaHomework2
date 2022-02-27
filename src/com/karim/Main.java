@@ -93,6 +93,12 @@ public class Main {
                 nums2[i] = nums2_2[i - middle];
             }
         }
+        Thread thread3 = new Thread(new Sorter(nums2));
+        thread3.start();
+        try {
+            thread3.join();
+        } catch (InterruptedException ex) {
+        }
         long stopTime2 = System.nanoTime();
         double elapsedTime2 = stopTime2 - startTime2;
         System.out.println("Массив, отсортированный в 2 потока");
